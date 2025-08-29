@@ -81,9 +81,29 @@ const LiveChat = () => {
         {/* <span className="text-white font-semibold text-base">Live Chat</span> */}
         {/* Example badges */}
         <div className="flex gap-2">
-          <span className="bg-green-600 text-white text-xs px-2 py-1 rounded-full">2 months</span>
-          <span className="bg-blue-600 text-white text-xs px-2 py-1 rounded-full">$4.99</span>
-          <span className="bg-purple-600 text-white text-xs px-2 py-1 rounded-full">1 year</span>
+          <div className="flex flex-wrap gap-4">
+  {/* B - 2 months */}
+  <button className="flex items-center gap-2">
+    <span className="bg-green-900 text-white text-xs px-1 py-2 rounded-full"><span className="bg-green-400 px-2 py-1 rounded-full ">B</span> 2 months</span>
+  </button>
+
+  {/* H - $4.99 */}
+  <button className="flex items-center gap-2">
+    <span className="bg-blue-900 text-white text-xs px-1 py-2 rounded-full"><span className="bg-blue-400 px-2 py-1 rounded-full">H</span> $4.99</span>
+  </button>
+
+  {/* P - 1 year */}
+  <button className="flex items-center gap-2">
+    <span className="bg-purple-900 text-white text-xs px-1 py-2 rounded-full"><span className="bg-purple-400 px-2 py-1 rounded-full">P</span> 1 year</span>
+  </button>
+
+  {/* S - $50 */}
+  <button className="flex items-center gap-2 block md:hidden">
+  <span className="bg-green-900 text-white text-xs px-1 py-2 rounded-full">
+    <span className="bg-green-400 px-2 py-1 rounded-full">S</span> $50
+  </span>
+</button>
+</div>
         </div>
       </div>
       {/* Messages */}
