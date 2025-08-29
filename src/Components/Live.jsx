@@ -62,11 +62,15 @@ const [showChat, setShowChat] = useState(false);
         <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black bg-opacity-60 lg:hidden">
           <div className="w-full sm:w-[400px] max-w-full bg-[#191919] rounded-t-2xl sm:rounded-2xl overflow-hidden shadow-lg">
             <div className="flex justify-between items-center p-4 border-b border-gray-700">
-              <span className="text-white text-lg font-bold">Live Chat</span>
-              <button
-                className="text-gray-400 hover:text-white text-2xl"
-                onClick={() => setShowChat(false)}
-              >
+             <div className="flex flex-col items-start">
+  <span className="text-white text-lg font-bold">Live Chat</span>
+  <span className="text-gray-400 text-sm">
+    Top messages
+    <span className="text-xs ml-1 align-middle">&#128065;</span>
+    <span className="text-xs ml-1 align-middle">120k</span>
+  </span>
+</div>
+              <button className="text-gray-400 hover:text-white text-2xl" onClick={() => setShowChat(false)}>
                 &times;
               </button>
             </div>

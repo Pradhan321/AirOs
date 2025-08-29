@@ -1,6 +1,3 @@
-
-
-
 import React, { useEffect, useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import { io } from "socket.io-client";
@@ -78,19 +75,29 @@ const LiveChat = () => {
   }, [loggedInUser]);
 
   return (
-    <div className="w-full h-[70vh] sm:h-[540px] md:h-[60vh] lg:h-[70vh] relative bg-[#191919] rounded-lg overflow-hidden border border-[#191919]">
+<div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-sm h-[60vh] lg:h-[86.5vh] flex flex-col bg-[#191919] rounded-2xl shadow-lg border border-[#232323] overflow-hidden">
+      {/* Header */}
+      <div className="bg-[#232323] px-4 py-3 border-b border-[#2B2B2B] flex items-center justify-between">
+        {/* <span className="text-white font-semibold text-base">Live Chat</span> */}
+        {/* Example badges */}
+        <div className="flex gap-2">
+          <span className="bg-green-600 text-white text-xs px-2 py-1 rounded-full">2 months</span>
+          <span className="bg-blue-600 text-white text-xs px-2 py-1 rounded-full">$4.99</span>
+          <span className="bg-purple-600 text-white text-xs px-2 py-1 rounded-full">1 year</span>
+        </div>
+      </div>
       {/* Messages */}
-      <div className="h-[calc(100%-60px)] sm:h-[calc(100%-70px)] overflow-y-auto p-2 sm:p-4 space-y-2 sm:space-y-3">
+      <div className="flex-1 overflow-y-auto px-4 py-3 space-y-2">
         {messages.map((msg, index) => (
           <div
             key={index}
-            className={`flex flex-col ${msg.isCurrentUser ? "items-end" : "items-start"}`}
+            className={`flex ${msg.isCurrentUser ? "justify-end" : "justify-start"}`}
           >
-            <div className="rounded-lg px-2 sm:px-3 py-1 sm:py-2 bg-[#2a2a2a] max-w-[90%]">
-              <span className="text-xs sm:text-sm font-semibold" style={{ color: msg.color }}>
+            <div className="rounded-lg px-3 py-2 bg-[#232323] max-w-[80%]">
+              <span className="text-xs font-semibold" style={{ color: msg.color }}>
                 {msg.sender}
               </span>
-              <p className="text-xs sm:text-sm text-white font-normal break-words">
+              <p className="text-xs text-white font-normal break-words">
                 {msg.message}
               </p>
             </div>
@@ -98,36 +105,36 @@ const LiveChat = () => {
         ))}
         <div ref={messagesEndRef} />
       </div>
-
-      {/* Input */}
-      <div className="w-full absolute bottom-0 left-0 right-0 p-2 sm:p-3 bg-[#1E1E1E] border-t border-[#2B2B2B]">
+      {/* Input or Sign-in */}
+      <div className="w-full px-4 py-3 bg-[#232323] border-t border-[#2B2B2B]">
         {loggedInUser ? (
-          <div className="flex gap-2 sm:gap-3">
+          <div className="flex gap-2">
             <input
               type="text"
               placeholder="Type a message..."
               value={userMessage}
               onChange={(e) => setUserMessage(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
-              className="flex-1 bg-[#2B2B2B] text-white p-1 sm:p-2 rounded-lg border border-[#3B3B3B] focus:outline-none focus:border-[#FECC30] text-xs sm:text-sm"
+              className="flex-1 bg-[#2B2B2B] text-white px-3 py-2 rounded-lg border border-[#3B3B3B] focus:outline-none focus:border-[#FECC30] text-xs"
             />
             <button
               onClick={handleSubmit}
-              className="bg-[#FECC30] text-black px-2 sm:px-4 py-1 sm:py-2 rounded-lg hover:bg-yellow-400 transition-colors text-xs sm:text-sm"
+              className="bg-[#FECC30] text-black px-4 py-2 rounded-lg hover:bg-yellow-400 transition-colors text-xs font-semibold"
             >
               Send
             </button>
           </div>
         ) : (
-          <div className="text-center text-gray-400 py-1 sm:py-2 text-xs sm:text-sm">
-            Sign in to participate in the chat
-            
+          <div className="text-center text-gray-400 py-2 text-xs">
+            <button className="w-full bg-[#232323] text-white py-2 rounded-lg border border-[#3B3B3B] mt-2 cursor-pointer">
+              Sign in to chat
+            </button>
+            <div className="mt-1 text-[10px] text-gray-500">
+              All messages that you send will appear publicly
+            </div>
           </div>
-
-          
         )}
       </div>
-      
     </div>
   );
 };
