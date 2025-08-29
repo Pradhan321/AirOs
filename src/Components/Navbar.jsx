@@ -58,10 +58,10 @@ const Navbar = () => {
         {/* Logo */}
         <div className="flex items-center gap-2">
           <span className="text-white text-2xl sm:text-3xl font-bold font-['Nunito Sans']">
-            Air
+            Amirtham radio 
           </span>
           <span className="text-[#C8C6C5] text-2xl sm:text-4xl font-bold font-['Nunito Sans']">
-            OS
+            logo
           </span>
         </div>
 

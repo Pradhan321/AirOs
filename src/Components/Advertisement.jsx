@@ -1,8 +1,11 @@
+
+
+
 import React from "react";
 
 const Advertisement = () => {
   return (
-    <div className="bg-[#122]">
+    <div className="bg-[#122] w-full overflow-x-hidden">
       {/* Marquee Section */}
       <div className="w-full h-24 md:h-32 overflow-hidden">
         <div className="relative whitespace-nowrap -rotate-2">
@@ -15,14 +18,14 @@ const Advertisement = () => {
       </div>
 
       {/* Stay Connected Section */}
-      <div className="m-4 md:m-[50px] w-full max-w-[1280px] mx-auto h-auto md:h-[60px] flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 px-4 md:px-[40px]">
+      <div className="w-full max-w-screen-xl mx-auto h-auto flex flex-col md:flex-row justify-between items-center gap-4 px-4 md:px-10">
         {/* Left Section */}
-        <div className="text-white text-[24px] md:text-[32.09px] font-semibold font-['Plus Jakarta Sans'] leading-[28px] md:leading-[38.50px] text-center md:text-left">
+        <div className="text-white text-[24px] md:text-[32px] font-semibold font-['Plus Jakarta Sans'] leading-[28px] md:leading-[38px] text-center md:text-left">
           Stay Connected - Join & Subscribe!
         </div>
 
         {/* Right Section */}
-        <div className="w-full md:w-auto flex flex-col md:flex-row items-center justify-between self-stretch gap-4 md:gap-0 pl-4 md:pl-[35.65px] pr-2 md:pr-[12.13px] py-2 md:py-[7.13px] bg-white/70 rounded-[21.39px]">
+        <div className="w-full md:w-auto flex flex-col md:flex-row items-center justify-between self-stretch gap-4 pl-4 md:pl-8 pr-2 md:pr-4 py-2 md:py-2 bg-white/70 rounded-2xl">
           {/* Icon Section */}
           <div className="flex gap-3 md:gap-5 pr-2 md:pr-3">
             <svg
@@ -62,13 +65,13 @@ const Advertisement = () => {
           </div>
 
           {/* Email Section */}
-          <div className="flex opacity-70 justify-start text-[#192434] pr-4 md:pr-7 text-base md:text-lg font-normal font-['Inter'] leading-snug tracking-tight text-center gap-2 md:gap-3">
-            name@email.com
+          <div className="flex opacity-70 justify-start text-[#192434] pr-4 md:pr-7 text-base md:text-lg font-normal font-['Nunito Sans'] leading-snug tracking-tight text-center gap-2 md:gap-3">
+            amirthamradio@gmail.com
           </div>
 
           {/* Join Now Button Section */}
-          <div className="w-full md:w-auto h-12 md:h-[50.17px] px-4 md:px-[42.78px] my-2 md:my-[21.39px] bg-[#192434] rounded-[14.26px] flex justify-center items-center gap-2 md:gap-[14.26px]">
-            <div className="text-white text-base md:text-lg font-bold font-['Inter'] leading-snug tracking-tight">
+          <div className="w-full md:w-auto h-12 md:h-12 px-4 md:px-10 my-2 md:my-4 bg-[#192434] rounded-xl flex justify-center items-center gap-2 md:gap-4">
+            <div className="text-white text-base md:text-lg font-bold font-['Nunito Sans'] leading-snug tracking-tight">
               Join Now
             </div>
           </div>

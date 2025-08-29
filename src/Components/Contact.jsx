@@ -130,7 +130,7 @@ const Contact = () => {
                   </svg>
                 </div>
                 <div className="text-xl font-medium font-['Nunito Sans']">
-                  airos@gmail.com
+                  amirthamradio@gmail.com
                 </div>
               </div>
 
@@ -160,7 +160,7 @@ const Contact = () => {
                   </svg>
                 </div>
                 <div className="text-xl font-medium font-['Nunito Sans']">
-                  +123 456 789
+                  +1416-996-1749
                 </div>
               </div>
 
@@ -179,7 +179,7 @@ const Contact = () => {
                   />
                 </svg>
                 <div className="text-xl font-medium font-['Nunito Sans']">
-                  123 Street 456 House
+                  Ontario, Canada
                 </div>
               </div>
             </div>

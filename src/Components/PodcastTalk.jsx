@@ -23,7 +23,7 @@ const PodcastTalk = () => {
             </div>
           </div>
           <div className="w-full max-w-xl text-center text-white text-2xl sm:text-4xl font-bold font-['NunitoSans'] leading-tight tracking-wide">
-            🎙️ Podcasts & Talk Shows
+            🎙️ Explore Music Categories
           </div>
         </div>
       </div>

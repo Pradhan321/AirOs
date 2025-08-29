@@ -20,21 +20,20 @@ const RecentShow = () => {
       </Suspense>
 
       {/* Hero Section */}
-      <div className="w-full text-center px-4 md:w-[1285px] md:h-64 relative mt-20">
-        <div className="text-white text-3xl sm:text-4xl md:text-5xl font-normal font-['Nunito Sans'] text-center leading-snug">
-          Create and stream{" "}
-          <span className="font-bold bg-amber-400 text-black px-2 rounded">
-            high-quality radio shows
-          </span>
-        </div>
-        <div className="text-white text-2xl sm:text-3xl md:text-5xl text-center mt-4 font-['Nunito Sans']">
-          while delivering the <span className="text-amber-400">best</span> experience
-        </div>
-        <div className="text-white text-2xl justify-center sm:text-3xl md:text-5xl text-center mt-4 font-bold font-['Space_Grotesk'] border-2 border-amber-400 rounded-3xl px-6 py-2 inline-block mx-auto">
-          for music lovers.
-        </div>
-      </div>
-
+      <div className="w-full max-w-screen-xl mx-auto text-center px-4 relative mt-20">
+  <div className="text-white text-3xl sm:text-4xl md:text-5xl font-normal font-['Nunito Sans'] text-center leading-snug">
+    Create and stream{" "}
+    <span className="font-bold bg-amber-400 text-black px-2 rounded">
+      high-quality radio shows
+    </span>
+  </div>
+  <div className="text-white text-2xl sm:text-3xl md:text-5xl text-center mt-4 font-['Nunito Sans']">
+    while delivering the <span className="text-amber-400">best</span> experience
+  </div>
+  <div className="text-white text-2xl justify-center sm:text-3xl md:text-5xl text-center mt-4 font-bold font-['Space_Grotesk'] border-2 border-amber-400 rounded-3xl px-6 py-2 inline-block mx-auto">
+    for music lovers.
+  </div>
+</div>
       {/* Stats Section */}
       <div className="w-full my-10 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0 px-4 md:px-[103.64px] py-[40px] bg-[#1A2929]">
         {/* 24/7 */}
