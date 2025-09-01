@@ -15,12 +15,11 @@ const Footer = () => {
   <div className="flex flex-col justify-start items-center lg:items-start gap-6 lg:gap-[21.39px] text-center lg:text-left">
     <div className="flex items-center gap-2 lg:gap-[7px] justify-center">
       <div className="flex items-center gap-2 lg:gap-[7px]">
-        <div className="text-white text-2xl lg:text-3xl font-bold font-['Nunito Sans'] leading-none">
-          Air
-        </div>
-        <div className="text-[#c8c6c5] text-2xl lg:text-3xl font-bold font-['Nunito Sans'] leading-none">
-          OS
-        </div>
+        <img 
+  src="./images/snewLogo.jpg" 
+  alt="Logo" 
+  className="w-[130px] h-[50px] object-contain" 
+/>
       </div>
     </div>
     <div className="w-full lg:w-[333.75px] opacity-70 text-white text-base lg:text-lg font-normal font-['Nunito Sans'] leading-relaxed lg:leading-loose tracking-tight text-center lg:text-left">

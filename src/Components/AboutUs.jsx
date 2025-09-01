@@ -23,7 +23,7 @@ const AboutUs = () => {
             </div>
             <div className="flex flex-col gap-4">
               <div className="text-white/70 text-base sm:text-lg lg:text-xl font-normal font-['Nunito Sans'] leading-7 lg:leading-9 tracking-tight">
-                Welcome to Air OS, Vancouver’s first multicultural internet
+                Welcome to Air OS, Toronto ’s first multicultural internet
                 radio station, dedicated to uniting communities through the
                 universal language of music, podcasts, and cultural
                 conversations.
