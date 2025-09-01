@@ -19,7 +19,7 @@ const AboutUs = () => {
             <div className="text-3xl sm:text-4xl lg:text-6xl font-bold font-['Nunito Sans'] leading-snug sm:leading-[48px] lg:leading-[72px]">
               Your Sound Your Story
               <br />
-              Live from Vancouver.
+              Live from Toronto.
             </div>
             <div className="flex flex-col gap-4">
               <div className="text-white/70 text-base sm:text-lg lg:text-xl font-normal font-['Nunito Sans'] leading-7 lg:leading-9 tracking-tight">

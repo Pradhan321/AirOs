@@ -50,7 +50,7 @@ const Body = () => {
 
         <section id="filmstars" aria-label="Film Stars" className="hidden lg:block">
           <Suspense fallback={<LoadingFallback />}>
-            <FilmStars />
+            {/* <FilmStars /> */}
           </Suspense>
         </section>
 

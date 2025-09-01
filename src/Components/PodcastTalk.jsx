@@ -7,6 +7,8 @@ import Rectangle from "../assets/PodcastTalk/Rectangle.png";
 
 const PodcastTalk = () => {
   const [showAllMobile, setShowAllMobile] = useState(false);
+  const [showAllDesktop, setShowAllDesktop] = useState(false);
+
 
   // Determine how many to show based on screen size
   const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
@@ -28,84 +30,89 @@ const PodcastTalk = () => {
         </div>
       </div>
       {/* All talk shows */}
-       <div className="flex justify-center items-center w-full px-2 sm:px-4">
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 md:gap-6 w-full max-w-6xl">
-          {showsToDisplay
-            .sort((a, b) => b.isLive - a.isLive)
-            .map((allshow) => (
-              <div
-                key={allshow?.id}
-                className={`w-full rounded-[16px] md:rounded-[23px] overflow-hidden ${
-                  allshow.isLive ? "bg-[#FFF]" : "bg-[#374545]"
-                } cursor-pointer transition-shadow hover:shadow-lg`}
-              >
-                <div className="w-full aspect-[6/7] relative bg-gray-300 rounded-t-[16px] md:rounded-t-[23px] overflow-hidden">
-                  <img
-                    src="./images/talkShow.png"
-                    alt={allshow.title}
-                    className="w-full h-full object-contain mt-4 mb-3 rounded-t-[16px]"
-                  />
-                </div>
-                <div className="p-3 md:p-4">
-                  <div className="flex flex-col justify-start items-start gap-1">
-                    <div className="flex items-center justify-between w-full">
-                      <div
-                        className={`${
-                          allshow.isLive ? "text-black" : "text-white"
-                        } text-base md:text-lg font-bold font-['Nunito_Sans'] truncate`}
-                      >
-                        {allshow.title.substring(0, 15) || "Trending News"}
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <span className="text-green-500 text-xs">★</span>
-                        <span
-                          className={`${
-                            allshow.isLive ? "text-black" : "text-white"
-                          } text-xs`}
-                        >
-                          {allshow.rating || "8.5"}
-                        </span>
-                      </div>
-                    </div>
-                    <div
-                      className={`opacity-75 ${
-                        allshow.isLive ? "text-black" : "text-white"
-                      } text-xs md:text-sm font-normal font-['Space_Grotesk'] leading-tight`}
-                    >
-                      {allshow.host || "Akash Wali"}
-                    </div>
-                    {allshow.isLive && (
-                      <div className="flex items-center justify-between w-full mt-2">
-                        <div className="flex items-center gap-1">
-                          <span className="w-2 h-2 bg-red-500 rounded-full"></span>
-                          <span className="text-red-500 text-xs">
-                            Live soon
-                          </span>
-                        </div>
-                        <div className="text-green-500 text-xs">
-                          {allshow.timing
-                            ? allshow.timing.split(" ")[0]
-                            : "08:00 PM"}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            ))}
+      <div className="flex justify-center items-center w-full px-2 sm:px-4">
+  <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 md:gap-6 w-full max-w-6xl">
+    {(isMobile
+      ? (showAllMobile ? AllShows : AllShows.slice(0, 4)) // mobile behavior unchanged
+      : (showAllDesktop ? AllShows : AllShows.slice(0, 5)) // desktop: only 5 first, then rest
+    )
+      .sort((a, b) => b.isLive - a.isLive)
+      .map((allshow) => (
+        <div
+  key={allshow?.id}
+  className="w-full rounded-[16px] md:rounded-[23px] overflow-hidden bg-[#374545] cursor-pointer transition-shadow hover:shadow-lg"
+>
+  <div className="w-full aspect-[6/7] relative bg-gray-300 rounded-t-[16px] md:rounded-t-[23px] overflow-hidden">
+    <img
+      src="./images/talkShow.png"
+      alt={allshow.title}
+      className="w-full h-full object-cover rounded-t-[16px]"
+    />
+  </div>
+  <div className="p-3 md:p-4">
+    <div className="flex flex-col justify-start items-start gap-1">
+      {/* Title + Rating */}
+      <div className="flex items-center justify-between w-full">
+        <div className="text-white text-base md:text-lg font-bold font-['Nunito_Sans'] truncate">
+          {allshow.title?.substring(0, 15) || "Trending News"}
+        </div>
+        <div className="flex items-center gap-1">
+          <span className="text-green-500 text-xs">★</span>
+          <span className="text-white text-xs">
+            {allshow.rating || "8.5"}
+          </span>
         </div>
       </div>
-      {/* Load More button for mobile */}
-      {isMobile && !showAllMobile && AllShows.length > 4 && (
-        <div className="flex justify-center mt-6">
-          <button
-            className="px-6 py-2 bg-[#fecc30] text-black font-semibold rounded-full shadow hover:bg-[#ffd966] transition"
-            onClick={() => setShowAllMobile(true)}
-          >
-            Load More
-          </button>
+
+      {/* Host */}
+      <div className="opacity-75 text-white text-xs md:text-sm font-normal font-['Space_Grotesk'] leading-tight">
+        {allshow.host || "Akash Wali"}
+      </div>
+
+      {/* Timing (optional, but consistent) */}
+      <div className="flex items-center justify-between w-full mt-2">
+        <div className="flex items-center gap-1">
+          <span className="w-2 h-2 bg-red-500 rounded-full"></span>
+          <span className="text-red-500 text-xs">
+            {allshow.isLive ? "Live soon" : "Upcoming"}
+          </span>
         </div>
-      )}
+        <div className="text-green-500 text-xs">
+          {allshow.timing ? allshow.timing.split(" ")[0] : "08:00 PM"}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      ))}
+  </div>
+</div>
+
+{/* Load More button for mobile */}
+{isMobile && !showAllMobile && AllShows.length > 4 && (
+  <div className="flex justify-center mt-6">
+    <button
+      className="px-6 py-2 bg-[#fecc30] text-black font-semibold rounded-full shadow hover:bg-[#ffd966] transition"
+      onClick={() => setShowAllMobile(true)}
+    >
+      Load More
+    </button>
+  </div>
+)}
+
+{/* Load More button for desktop */}
+{!isMobile && !showAllDesktop && AllShows.length > 5 && (
+  <div className="flex justify-center mt-6">
+    <button
+      className="px-6 py-2 bg-[#fecc30] text-black font-semibold rounded-full shadow hover:bg-[#ffd966] transition"
+      onClick={() => setShowAllDesktop(true)}
+    >
+      Load More
+    </button>
+  </div>
+)}
+
       {/* Decorative SVG */}
       <div className="w-16 h-16 sm:w-20 sm:h-20 rotate-[-10deg] flex-shrink-0 flex justify-end ml-auto mt-8 sm:mt-10 mr-4 sm:mr-10">
         <svg
